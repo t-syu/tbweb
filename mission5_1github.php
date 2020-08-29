@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset = "UTF-8">
-    <title>mission3_5</title>
+    <title>mission5_1</title>
 </head>
 <body>
     <?php
@@ -20,7 +20,8 @@
         . "date TEXT"
         .");";
         $stmt = $pdo->query($sql);
-        
+	
+        if($_SERVER["REQUEST_METHOD"] === "POST") {
         //phpのPOSTを取得
         $name = $_POST["name"];
         $cmt = $_POST["cmt"];
@@ -31,9 +32,7 @@
         $dele_pw = $_POST["dele_pw"];
         $edit_pw = $_POST["edit_pw"];
         $date = date("Y年m月d日H時i分s秒");
-        
-        
-        if($_SERVER["REQUEST_METHOD"] === "POST") {
+	
             if(isset($_POST["sbm_btn"])) {
                 if($id) {
                     $dbid = $id; //変更する投稿番号
